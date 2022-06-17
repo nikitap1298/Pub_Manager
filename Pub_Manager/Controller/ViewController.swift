@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var mainLabel: UILabel!
     
+    @IBOutlet var allButtons: [UIButton]!
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,14 @@ class ViewController: UIViewController {
         Pub.singleton.beer.append(contentsOf: [beer0, beer1, beer2])
         
         mainLabel.text = "Remaining: 0"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        for i in allButtons {
+            i.layer.cornerRadius = i.frame.height / 2
+        }
     }
     
     //MARK: - IBActions
